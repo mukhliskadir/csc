@@ -70,7 +70,7 @@ public class staffservlet extends HttpServlet {
             String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790"; //ni password dri heroku database
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-            String sql  ="SELECT * from admin";
+            String sql  ="SELECT * from staff";
 
             if (conn != null){
                 DatabaseMetaData dm = conn.getMetaData();
