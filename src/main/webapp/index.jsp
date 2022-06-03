@@ -26,14 +26,14 @@
                 <label style="">Username</label>
             </div>
             <div class="col-75">
-                <input type="text" name="staffusername" placeholder="Enter your username" value="">
+                <input type="text" name="adminusername" placeholder="Enter your username" value="">
             </div></div>
         <div class="row">
             <div class="col-25">
                 <label>Password</label>
             </div>
             <div class="col-75">
-                <input type="password" name="staffpassword" placeholder="Your password" value="">
+                <input type="password" name="adminpassword" placeholder="Your password" value="">
             </div>
         </div>
         <input type="hidden" name="action" value="login">

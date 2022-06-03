@@ -79,16 +79,6 @@ public class AdminServlet extends HttpServlet {
                 while (res.next()){
                     if(username.equals(res.getString("adminusername")) && password.equals(res.getString("adminpassword")))
                     {
-
-                        session.setAttribute("adminid", res.getInt(1));
-                        session.setAttribute("adminusername", res.getString(2));
-                        session.setAttribute("adminpassword", res.getString(3));
-                        session.setAttribute("adminname", res.getString(4));
-                        session.setAttribute("adminemail", res.getString(5));
-
-                        response.sendRedirect("dashboard.jsp");
-
-
                     }else{
                         out.println("User not exist");
                     }
