@@ -127,6 +127,6 @@ public class CustServlet extends HttpServlet {
         cst.setCustLicenseNo(license);
 
         cd.signup(cst);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("dashboard.jsp");
     }
 }
