@@ -11,9 +11,9 @@ import static java.lang.System.out;
 public class staffDAO {
 
 
-    String dbURL = "jdbc:postgresql://ec2-54-227-248-71.compute-1.amazonaws.com/dbg69f8o5aj3pj"; //ni url dri heroku database
-    String user = "ruosfovocnllbi"; //ni user dri heroku database
-    String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790"; //ni password dri heroku database
+    String dbURL = "jdbc:postgresql://ec2-54-227-248-71.compute-1.amazonaws.com/dbg69f8o5aj3pj";
+    String user = "ruosfovocnllbi";
+    String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790";
 
 
 
@@ -39,7 +39,7 @@ public class staffDAO {
 
         // try-with-resource statement will auto close the connection.
         try (Connection con = getConnection();
-             PreparedStatement ps = con.prepareStatement("insert into staff(staffname,staffphone,staffusername,staffpassword) values(?,?,?,?)");)
+             PreparedStatement ps = con.prepareStatement("insert into staff(staffame,staffphone,staffusername,staffpassword) values(?,?,?,?)");)
         {
             ps.setString(1, adm.getStaffName());
             ps.setString(2, adm.getStaffPhone());
@@ -58,7 +58,7 @@ public class staffDAO {
     public boolean updateUser(staff adm) throws SQLException {
         boolean UpdateRow;
         try (Connection con = getConnection();
-             PreparedStatement stmt = con.prepareStatement("UPDATE admin set staffusername=?,staffpassword=?,staffname=?,staffphone=? where staffid=?");)
+             PreparedStatement stmt = con.prepareStatement("UPDATE admin set staffusername=?,staffpassword=?,staffame=?,staffphone=? where staffid=?");)
         {
             stmt.setString(1, adm.getStaffName());
             stmt.setString(2, adm.getStaffPhone());
