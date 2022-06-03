@@ -32,6 +32,7 @@ public class AdminServlet extends HttpServlet {
         String password = request.getParameter("adminpassword");
         String username = request.getParameter("adminusername");
 
+
         try {
             Class.forName("org.postgresql.Driver"); // ni stay
             String dbURL = "jdbc:postgresql://ec2-54-227-248-71.compute-1.amazonaws.com/dbg69f8o5aj3pj";
