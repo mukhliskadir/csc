@@ -35,7 +35,7 @@ public class custDao {
         // try-with-resource statement will auto close the connection.
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("insert into customer(custname,custphone,custnric,custaddress,custusername,custpassword,custlicenseno) values(?,?,?,?,?,?,?)");)
+                     ("insert into customer(custname,custphone,custnric,custaddress,custusername,custpassword,custlicenseno) values(?,?,?,?,?,?,?)"))
         {
 
             ps.setString(1, cst.getCustName());
