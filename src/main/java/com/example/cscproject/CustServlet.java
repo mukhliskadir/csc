@@ -10,8 +10,9 @@ import java.sql.*;
 @WebServlet(name = "CustServlet", value = "/CustServlet")
 public class CustServlet extends HttpServlet {
 
-    public CustServlet(){
-        super();
+    private custDao cd;
+    public void init() {
+        cd = new custDao();
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,6 +33,9 @@ public class CustServlet extends HttpServlet {
             switch (action) {
                 case "login":
                     login(request, response);
+                    break;
+                case "signup":
+                    signup(request, response);
                     break;
             }
 
@@ -56,7 +60,7 @@ public class CustServlet extends HttpServlet {
             String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790";
             Connection con = DriverManager.getConnection(dbURL, user, pass);
 
-            String sql  ="SELECT * from custommer";
+            String sql  = "SELECT * from customer";
 
             if (con != null){
                 DatabaseMetaData dm = con.getMetaData();
@@ -98,5 +102,31 @@ public class CustServlet extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    private void signup(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+
+        String name = request.getParameter("custName");
+        String phone = request.getParameter("custPhone");
+        String nric = request.getParameter("custNric");
+        String address = request.getParameter("custAddress");
+        String username = request.getParameter("custUsername");
+        String password = request.getParameter("custPassword");
+        String license = request.getParameter("custLicenseNo");
+
+
+        customer cst = new customer();
+
+
+        cst.setCustName(name);
+        cst.setCustPhone(phone);
+        cst.setCustNRIC(nric);
+        cst.setCustAddress(address);
+        cst.setCustUsername(username);
+        cst.setCustPassword(password);
+        cst.setCustLicenseNo(license);
+
+        cd.signup(cst);
+        response.sendRedirect("index.jsp");
     }
 }

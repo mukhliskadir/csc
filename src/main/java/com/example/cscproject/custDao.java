@@ -29,4 +29,28 @@ public class custDao {
         }
         return con;
 
-    }}
+    }
+    public void signup (customer cst) throws SQLException {
+
+        // try-with-resource statement will auto close the connection.
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement
+                     ("insert into customer(custname,custphone,custnric,custaddress,custusername,custpassword,custlicenseno) values(?,?,?,?,?,?,?)");)
+        {
+
+            ps.setString(1, cst.getCustName());
+            ps.setString(2, cst.getCustPhone());
+            ps.setString(3, cst.getCustNRIC());
+            ps.setString(4, cst.getCustAddress());
+            ps.setString(5, cst.getCustUsername());
+            ps.setString(6, cst.getCustPassword());
+            ps.setString(7, cst.getCustLicenseNo());
+            out.println(ps);
+            ps.executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
