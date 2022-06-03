@@ -57,7 +57,7 @@ public class CustServlet extends HttpServlet {
             String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790";
             Connection con = DriverManager.getConnection(dbURL, user, pass);
 
-            String sql  = "SELECT * from customer";
+            String sql  = "SELECT * FROM customer";
 
             if (con != null){
                 DatabaseMetaData dm = con.getMetaData();

@@ -44,31 +44,31 @@
 <form class="cust" method="post" action="CustServlet">
     <div class="dataa">
         Name
-        <input type="text" name="name">
+        <input type="text" name="name" value="">
     </div>
     <div class="dataa">
         Phone
-        <input type="text" name="phone">
+        <input type="text" name="phone" value="">
     </div>
     <div class="dataa">
         ic
-        <input type="text" name="nric">
+        <input type="text" name="nric" value="">
     </div>
     <div class="dataa">
         address
-        <textarea type="text" name="address"></textarea>
+        <textarea type="text" name="address" value=""></textarea>
     </div>
 
     <div class="dataa">
         username
-        <input type="text" name="username">
+        <input type="text" name="username"value="">
     </div>
     <div class="dataa">
         password
-        <input type="password" name="password">
+        <input type="password" name="password" value="">
     </div>
     <div class="dataa">License
-        <input type="text" name="license">
+        <input type="text" name="license" value="">
     </div>
     <input type="hidden" name="action" value="signup">
 
