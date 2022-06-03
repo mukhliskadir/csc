@@ -90,7 +90,7 @@ public class CustServlet extends HttpServlet {
 
                         session.setAttribute("custid", cst.getCustID());
                         session.setAttribute("customer", cst);
-                        response.sendRedirect("cust-panel.jsp");
+                        response.sendRedirect("dashboard.jsp");
 
 
                     }else{
