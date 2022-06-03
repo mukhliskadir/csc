@@ -38,13 +38,13 @@ public class custDao {
                      ("insert into customer(custname,custphone,custnric,custaddress,custusername,custpassword,custlicenseno) values(?,?,?,?,?,?,?)"))
         {
 
-            ps.setString(2, cst.getCustName());
-            ps.setString(3, cst.getCustPhone());
-            ps.setString(4, cst.getCustNRIC());
-            ps.setString(5, cst.getCustAddress());
-            ps.setString(6, cst.getCustUsername());
-            ps.setString(7, cst.getCustPassword());
-            ps.setString(8, cst.getCustLicenseNo());
+            ps.setString(1, cst.getCustName());
+            ps.setString(2, cst.getCustPhone());
+            ps.setString(3, cst.getCustNRIC());
+            ps.setString(4, cst.getCustAddress());
+            ps.setString(5, cst.getCustUsername());
+            ps.setString(6, cst.getCustPassword());
+            ps.setString(7, cst.getCustLicenseNo());
             out.println(ps);
             ps.executeUpdate();
         }
