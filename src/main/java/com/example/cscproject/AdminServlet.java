@@ -5,86 +5,50 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-
-@WebServlet(name = "AdminServlet", value = "/AdminServlet")
+/**
+ * Servlet implementation class AdminServlet
+ */
+@WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
-    private AdminDao ad;
-    public void init() {
-        ad = new AdminDao();
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AdminServlet() {
+        super();
+
+        // TODO Auto-generated constructor stub
     }
 
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        response.setContentType("text/html");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
         PrintWriter out = response.getWriter();
 
-        String action = request.getParameter("action");
-
-        try {
-            switch (action) {
-                case "login":
-                    login(request, response);
-                    break;
-
-            }
-        } catch (SQLException ex) {
-            throw new ServletException(ex);
-        }
-
-
-    }
-
-
-
-    /*######################################################( LOGIN )#############################################################*/
-
-
-    private void login(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
 
         String password = request.getParameter("adminpassword");
         String username = request.getParameter("adminusername");
 
         try {
-
             Class.forName("org.postgresql.Driver"); // ni stay
-            String dbURL = "jdbc:postgresql://ec2-34-194-171-47.compute-1.amazonaws.com/dcb70s908sasfa"; //ni url dri heroku database
-            String user = "gpdkvocjaztxrw"; //ni user dri heroku database
-            String pass = "dceb52b9fa471dce9048a701a0f88b7d4dee9e9ca420a48101baa31d0e68def5"; //ni password dri heroku database
-            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+            String dbURL = "jdbc:postgresql://ec2-54-227-248-71.compute-1.amazonaws.com/dbg69f8o5aj3pj";
+            String user = "ruosfovocnllbi";
+            String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790";
+            Connection con = DriverManager.getConnection(dbURL, user, pass);
 
             String sql  ="SELECT * from admin";
 
-            if (conn != null){
-                DatabaseMetaData dm = conn.getMetaData();
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product Name: " + dm.getDatabaseProductName());
-                System.out.println("Product version: " + dm.getDatabaseProductVersion());
-
-
-                Statement statement = conn.createStatement();
+            if (con != null){
+                Statement statement = con.createStatement();
                 ResultSet res = statement.executeQuery(sql);
 
                 while (res.next()){
                     if(username.equals(res.getString("adminusername")) && password.equals(res.getString("adminpassword")))
                     {
 
-                        session.setAttribute("adminid", res.getInt(1));
-                        session.setAttribute("adminusername", res.getString(2));
-                        session.setAttribute("adminpassword", res.getString(3));
-                        session.setAttribute("adminname", res.getString(4));
-                        session.setAttribute("adminemail", res.getString(5));
 
                         response.sendRedirect("dashboard.jsp");
 
@@ -94,16 +58,10 @@ public class AdminServlet extends HttpServlet {
                     }
                 }
             }
-
-
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-
-
-
-
-
-
 }
+
+
