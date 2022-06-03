@@ -48,11 +48,11 @@
     </div>
     <div class="dataa">
         Phone
-        <input type="Number" name="phone">
+        <input type="text" name="phone">
     </div>
     <div class="dataa">
         ic
-        <input type="Number" name="nric">
+        <input type="text" name="nric">
     </div>
     <div class="dataa">
         address
@@ -68,7 +68,7 @@
         <input type="password" name="password">
     </div>
     <div class="dataa">License
-        <input type="Number" name="license">
+        <input type="text" name="license">
     </div>
     <input type="hidden" name="action" value="signup">
 
