@@ -70,7 +70,7 @@ public class CarServlet extends HttpServlet {
 
         car c = new car();
         cd.removeCar(c);
-        response.sendRedirect("carlist");
+        response.sendRedirect("carlist.jsp");
 
     }
 }
