@@ -9,46 +9,63 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<sql:setDataSource var="ic"
-                   driver="org.postgresql.Driver"
-                   url = "jdbc:postgresql://ec2-54-227-248-71.compute-1.amazonaws.com/dbg69f8o5aj3pj"
-                    user = "ruosfovocnllbi"
-                    password = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790"/>
 
-<sql:query dataSource="${ic}" var="oc">
-    SELECT * from cars;
-</sql:query>
-<div >
-    <table border="1" cellpadding="5">
-        <caption><h2>List of users</h2></caption>
+
+<form method="post">
+
+    <table border="2">
         <tr>
-            <th>Plate</th>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Price</th>
-            <th>Years</th>
-            <th>Pic</th>
-            <th>Status</th>
-
+            <td>Plate</td>
+            <td>Brand</td>
+            <td>Model</td>
+            <td>Price</td>
+            <td>Years</td>
         </tr>
-        <c:forEach var="user" items="${oc.rows}">
-            <tr>
-                <td><c:out value="${carplate}" /></td>
-                <td><c:out value="${carbrand}" /></td>
-                <td><c:out value="${carmodel}" /></td>
-                <td><c:out value="${carprice}" /></td>
-                <td><c:out value="${caryears}" /></td>
-                <td><c:out value="${carpic}" /></td>
-                <td><c:out value="${carstatus}" /></td>
+        <%
+            try
+            {
+                Class.forName("org.postgresql.Driver");
+                String dbURL = "jdbc:postgresql://ec2-54-227-248-71.compute-1.amazonaws.com/dbg69f8o5aj3pj";
+                String user = "ruosfovocnllbi";
+                String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790";
+                String query="select * from cars";
+                Connection con=DriverManager.getConnection(dbURL, user, pass);
+                Statement stmt=con.createStatement();
+                ResultSet rs=stmt.executeQuery(query);
+                while(rs.next())
+                {
 
-            </tr>
-        </c:forEach>
+        %>
+        <tr><td><%=rs.getString("carplate") %></td></tr>
+        <tr><td><%=rs.getString("carbrand") %></td></tr>
+        <tr><td><%=rs.getString("carmodel") %></td></tr>
+        <tr><td><%=rs.getString("carprice") %></td></tr>
+        <tr><td><%=rs.getString("caryears") %></td></tr>
+
+        <%
+
+            }
+        %>
     </table>
-</div>
+    <%
+            rs.close();
+            stmt.close();
+            con.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    %>
+</form>
 </body>
 </html>
