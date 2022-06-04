@@ -58,7 +58,7 @@
             <td><%=rs.getString("carstatus") %></td>
             <td>
                 <a href="/edit?carPlate=<c:out value='${carplate}' />">Edit</a>
-            <td><a href="/delete?plate=<%=resultSet.getString("carPlate") %>"><button type="button"  class="delete">Delete</button></a></td>
+            <td><a href="/delete?plate=<%=rs.getString("carPlate") %>"><button type="button"  class="delete">Delete</button></a></td>
             </td>
         </tr>
 
