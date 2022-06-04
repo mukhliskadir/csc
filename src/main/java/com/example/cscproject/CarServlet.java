@@ -69,6 +69,7 @@ public class CarServlet extends HttpServlet {
         String plate = request.getParameter("carPlate");
 
         car c = new car();
+        c.setCarPlate(plate);
         cd.removeCar(c);
         response.sendRedirect("carlist.jsp");
 
