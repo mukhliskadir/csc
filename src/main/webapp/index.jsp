@@ -74,5 +74,6 @@
 
     <button type="submit" class="button button1" name="submit" >Sign Up</button><br><br>
 </form>
+<a href="cars.jsp">addcar</a>
 </body>
 </html>
