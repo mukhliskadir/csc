@@ -27,7 +27,7 @@
 
     <div class="dataa">
       Image :
-        <input type="file"id="carImage" name="carPic" accept="image/png, image/jpeg">
+        <input type="text"id="carImage" name="carPic" accept="image/png, image/jpeg">
     </div>
     <div class="dataa">
         Price Per Day :
