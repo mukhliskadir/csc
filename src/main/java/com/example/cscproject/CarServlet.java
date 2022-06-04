@@ -41,7 +41,7 @@ public class CarServlet extends HttpServlet {
         String plate = request.getParameter("carPlate");
         String brand = request.getParameter("carBrand");
         String model = request.getParameter("carModel");
-        Double price = Double.parseDouble(request.getParameter("carPrice"));
+        double price = Double.parseDouble(request.getParameter("carPrice"));
         int years = Integer.parseInt(request.getParameter("carYears"));
         String pic = request.getParameter("carImage");
         String status = request.getParameter("carStatus");
