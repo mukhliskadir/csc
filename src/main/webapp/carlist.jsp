@@ -29,6 +29,9 @@
             <td>Model</td>
             <td>Price</td>
             <td>Years</td>
+            <td>Pic</td>
+            <td>Status</td>
+            <td>Action</td>
         </tr>
         <%
             try
@@ -51,6 +54,12 @@
             <td><%=rs.getString("carmodel") %></td>
             <td><%=rs.getString("carprice") %></td>
             <td><%=rs.getString("caryears") %></td>
+            <td><%=rs.getString("carpic") %></td>
+            <td><%=rs.getString("carstatus") %></td>
+            <td>
+                <a href="/edit?carplate=<c:out value='${carplate}' />">Edit</a>
+                <a href="/delete?carplate=<c:out value='${carplate}' />">Delete</a>
+            </td>
         </tr>
 
         <%

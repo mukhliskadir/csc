@@ -28,7 +28,10 @@ public class CarServlet extends HttpServlet {
                 case "addCar":
                     addCar(request, response);
                     break;
-               
+                case "/delete":
+                    removeCar(request, response);
+                    break;
+
             }
 
         } catch (SQLException e) {
@@ -60,5 +63,14 @@ public class CarServlet extends HttpServlet {
 
         cd.addCar(c);
         response.sendRedirect("dashboard.jsp");
+    }
+    private void removeCar(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        String plate = request.getParameter("carPlate");
+
+        car c = new car();
+        cd.removeCar(c);
+        response.sendRedirect("carlist");
+
     }
 }

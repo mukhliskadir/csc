@@ -12,7 +12,6 @@ public class carDao {
     String pass = "4c5eb370559357ded07f3ea6e699d8d7a41249752c9011caf5ac8c6d215bd790";
 
 
-
     protected Connection getConnection() {
         Connection con = null;
         try {
@@ -27,13 +26,13 @@ public class carDao {
         }
         return con;
     }
-    public void addCar (car c) throws SQLException {
+
+    public void addCar(car c) throws SQLException {
 
         // try-with-resource statement will auto close the connection.
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("insert into cars(carplate,carbrand,carmodel,carprice,caryears,carpic,carstatus) values(?,?,?,?,?,?,?)"))
-        {
+                     ("insert into cars(carplate,carbrand,carmodel,carprice,caryears,carpic,carstatus) values(?,?,?,?,?,?,?)")) {
 
             ps.setString(1, c.getCarPlate());
             ps.setString(2, c.getCarBrand());
@@ -44,9 +43,22 @@ public class carDao {
             ps.setString(7, c.getCarStatus());
             out.println(ps);
             ps.executeUpdate();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void removeCar(car c) throws SQLException {
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement("DELETE FROM car where carplate = ?")) {
+
+            ps.setString(1, c.getCarPlate());
+
+            ps.executeUpdate() ;
+            ps.close();
+            } catch (Exception e) {
+        e.printStackTrace();
+        }
+
     }
 }
