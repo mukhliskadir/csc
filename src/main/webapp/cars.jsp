@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form class="cust" action="CarServlet">
+<form class="cust" action="CarServlet" method="post">
     <div class="dataa">
         No. Plate :
         <input type="text" name="carPlate">
