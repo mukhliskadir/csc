@@ -31,11 +31,11 @@
     </div>
     <div class="dataa">
         Price Per Day :
-        <input type="number" name="carPrice" step="any" required>
+        <input type="text" name="carPrice" step="any" required>
     </div>
     <div class="dataa">
         Cars Manufacture Year :
-        <input type="number" min="1900" max="2099" step="1" placeholder="2003" name="years" />
+        <input type="text" min="1900" max="2099" step="1" placeholder="2003" name="years" />
     </div>
     <div class="dataa">
       Car Availabality ?<br>
