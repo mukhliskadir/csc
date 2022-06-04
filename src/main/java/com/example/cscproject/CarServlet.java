@@ -28,7 +28,7 @@ public class CarServlet extends HttpServlet {
                 case "addCar":
                     addCar(request, response);
                     break;
-                case "/delete":
+                case "delete":
                     removeCar(request, response);
                     break;
 
