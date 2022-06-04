@@ -45,11 +45,13 @@
                 {
 
         %>
-        <tr><td><%=rs.getString("carplate") %></td></tr>
-        <tr><td><%=rs.getString("carbrand") %></td></tr>
-        <tr><td><%=rs.getString("carmodel") %></td></tr>
-        <tr><td><%=rs.getString("carprice") %></td></tr>
-        <tr><td><%=rs.getString("caryears") %></td></tr>
+        <tr>
+            <td><%=rs.getString("carplate") %></td>
+            <td><%=rs.getString("carbrand") %></td>
+            <td><%=rs.getString("carmodel") %></td>
+            <td><%=rs.getString("carprice") %></td>
+            <td><%=rs.getString("caryears") %></td>
+        </tr>
 
         <%
 
