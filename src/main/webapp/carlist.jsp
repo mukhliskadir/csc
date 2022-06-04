@@ -57,8 +57,8 @@
             <td><%=rs.getString("carpic") %></td>
             <td><%=rs.getString("carstatus") %></td>
             <td>
-                <a href="/edit?carplate=<c:out value='${carplate}' />">Edit</a>
-                <a href="/delete?carplate=<c:out value='${carplate}' />">Delete</a>
+                <a href="/edit?carPlate=<c:out value='${carplate}' />">Edit</a>
+                <a href="/delete?carPlate=<c:out value='${carplate}' />">Delete</a>
             </td>
         </tr>
 
