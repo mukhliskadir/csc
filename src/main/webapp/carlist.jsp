@@ -58,8 +58,7 @@
             <td><%=rs.getString("carstatus") %></td>
             <td>
                 <a href="/edit?carplate=<c:out value='${carplate}' />">Edit</a>
-                <input type="hidden" name="action" value="removeCar">
-                <button type="button"  class="delete">Delete</button></a>
+                <a href="/delete?carPlate=<c:out value='${carplate}' />">Edit</a>
             </td>
         </tr>
 
