@@ -27,15 +27,15 @@
 
     <div class="dataa">
       Image :
-        <input type="text" id="carImage" name="carPic" accept="image/png, image/jpeg">
+        <input type="text"id="carImage" name="carPic" accept="image/png, image/jpeg">
     </div>
     <div class="dataa">
         Price Per Day :
-        <input type="text" name="carPrice" step="any" required>
+        <input type="number" name="carPrice" step="any" >
     </div>
     <div class="dataa">
         Cars Manufacture Year :
-        <input type="text"  name="years" />
+        <input type="number" min="1900" max="2099" step="1" placeholder="2003" name="carYears" />
     </div>
     <div class="dataa">
       Car Availabality ?<br>
